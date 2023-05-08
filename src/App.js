@@ -1,8 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {Logon, Cad} from './pages/Logon'
 function App() {
   return (
-    <div className="App">
-      Hello world!
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" />
+        <Route path="/login" element={<Logon />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
