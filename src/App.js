@@ -6,6 +6,7 @@ function App() {
       <Routes>
         <Route path="/" />
         <Route path="/login" element={<Logon />}/>
+        <Route path="/cadastro" element={<Cad />}/>
       </Routes>
     </BrowserRouter>
   );
