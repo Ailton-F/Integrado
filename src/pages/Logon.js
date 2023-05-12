@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import '../assets/css/Logon.css';
 import Logo from '../assets/img/Logo.svg';
+import AuthServiceContext from '../services/AuthServiceContext';
+
 
 function Logon(){
+    let {logUser} = useContext(AuthServiceContext);
+
     return(
         <div class="cad-container d-flex justify-content-center align-items-center vh-100">
             <div class="card border-0 shadow-lg flex-grow-1">
@@ -10,10 +15,10 @@ function Logon(){
                     <h4 class="card-title mt-5">Entre em sua conta</h4>
                 </div>
                 <div class="card-body">
-                    <form class="form">
+                    <form class="form" onSubmit={logUser}>
                         <label class="form-label" form="email">E-mail</label>
                         <div class="form-group">
-                            <input class="form-control" name="email" type="email" required/>
+                            <input class="form-control" name="email" type="text" required/>
                         </div>
                         <label class="form-label mt-2" form="password">Senha</label>
 
