@@ -1,0 +1,11 @@
+.custom-slide-label{
+    opacity: 1 !important;
+}
+
+.active {
+    background-color: #6CD05C !important;
+}
+
+.recent {
+    margin-top: 4rem;
+}

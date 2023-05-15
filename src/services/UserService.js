@@ -15,10 +15,10 @@ export const logIn = async (e)=>{
             password: e.target.password.value
         })
     }
-
     let req = await fetch('http://127.0.0.1:8000/api/login', reqOpt)
     let res = await req.json()
     let res_decoded = jwt(res.token)
+
     cookie.set("jwt", res.token, {
         expires: new Date(res_decoded.exp * 1000),
         httpOnly: true,
