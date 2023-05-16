@@ -26,14 +26,21 @@ a:hover{
 }
 
 .pass{
-    border-right: 0 !important;
+    border-right: 0;
+    border-top: solid 1px #ced4da;
+    border-left: solid 1px #ced4da;
+    border-bottom: solid 1px #ced4da;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0; 
+    border-bottom-right-radius: 0;
+}
+
+.custom-input{
+    border: 1px solid #ced4da;
 }
 
 .icon{
     border: 1px solid #ced4da;
-    padding: .75rem !important;
+    padding: .75rem;
     border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -41,9 +48,9 @@ a:hover{
 }
 
 .sbmt-btn{
-    background-color: #6CD05C;
+    background-color: #6CD05C ;
     padding: 1rem !important;
-    border-radius: 500px !important;
+    border-radius: 500px ;
 }
 
 .sbmt-btn:focus{

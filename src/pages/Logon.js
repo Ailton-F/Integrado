@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import '../assets/css/Logon.css';
 import Logo from '../assets/img/Logo.svg';
 import { logIn, cad } from '../services/UserService';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/Logon.css';
 
 function Logon(){
     return(
@@ -16,7 +15,7 @@ function Logon(){
                     <form className="form" onSubmit={ logIn }>
                         <label className="form-label" for="email">E-mail</label>
                         <div className="form-group">
-                            <input className="form-control" name="email" type="email" required/>
+                            <input className="form-control custom-input" name="email" type="email" required/>
                         </div>
                         <label className="form-label mt-2" for="password">Senha</label>
 
@@ -50,12 +49,12 @@ function Cad(){
                         
                         <label className="form-label" for="name">Nome de identificação</label>
                         <div className="form-group">
-                            <input className="form-control" name="name" type="text" required/>
+                            <input className="form-control custom-input" name="name" type="text" required/>
                         </div>
 
                         <label className="form-label mt-2" for="email">E-mail</label>
                         <div className="form-group">
-                            <input className="form-control" name="email" type="email" required/>
+                            <input className="form-control custom-input" name="email" type="email" required/>
                         </div>
                         
                         <label className="form-label mt-2" for="password">Senha</label>
@@ -74,5 +73,7 @@ function Cad(){
         </div>
     )
 }
+
+
 
 export {Logon, Cad};

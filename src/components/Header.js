@@ -1,6 +1,7 @@
 import HeaderLogo from '../assets/img/HeaderLogo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Header.css';
+
 function Header(props){
     return(
         <nav className={'navbar navbar-expand-lg bg-transparent ' + (props.shadow ? 'shadow-lg':'')}>
