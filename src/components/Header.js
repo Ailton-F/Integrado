@@ -1,4 +1,5 @@
 import HeaderLogo from '../assets/img/HeaderLogo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Header.css';
 function Header(){
     return(
@@ -19,7 +20,7 @@ function Header(){
                         <input className="form-control rounded-pill input-search py-1 px-5" type="search" placeholder="Buscar" aria-label="Search"/>
                         
                         <button className="btn btn-search rounded-pill" type="submit">
-                            <i class="ri-search-line"></i>
+                            <i className="ri-search-line"></i>
                         </button>
                     </form>
 

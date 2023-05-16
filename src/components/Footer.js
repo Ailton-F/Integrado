@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Footer.css';
 
 function Footer(){
     return(
     <div className="footer-bg">
-        <footer className="py-3 my-4 container">
+        <footer className="py-3 container">
             <ul className="nav justify-content-center border-bottom pb-3 mb-3">
                 <li className="nav-item"><a href="#" className="nav-link px-2 text-white">Home</a></li>
                 <li className="nav-item"><a href="#" className="nav-link px-2 text-white">Features</a></li>
