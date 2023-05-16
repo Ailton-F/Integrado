@@ -1,10 +1,10 @@
 import HeaderLogo from '../assets/img/HeaderLogo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/Header.css';
-function Header(){
+function Header(props){
     return(
-        <nav className="navbar navbar-expand-lg bg-transparent container">
-            <div className="container-fluid">
+        <nav className={'navbar navbar-expand-lg bg-transparent ' + (props.shadow ? 'shadow-lg':'')}>
+            <div className="container">
 
                 <a className="navbar-brand" href="#">
                     <img src={HeaderLogo} alt='Livresse Logo'/>

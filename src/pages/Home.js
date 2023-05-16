@@ -1,20 +1,21 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import BooksCarousel from '../components/BooksCarousel';
+import { CategoryCard } from '../components/CategoryCard';
 import { CardBook } from '../components/CardBook';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 import '../assets/css/Home.css';
 
 function Home(){
-    const rows = []
-    for(let i = 0; i < 8; i++){
-        rows.push(<CardBook/>)
+    const cols = [];
+    for(let i = 0; i < 6; i++){
+        cols.push(<CategoryCard title="Título" src="https://source.unsplash.com/random/381x180/?img=1" key={i}/>)
     }
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -45,13 +46,42 @@ function Home(){
             </div>
 
             <div className='container recent'>
-                <h3>Adicionados recentemente</h3>
+                <h2>Adicionados recentemente</h2>
             </div>
 
             <BooksCarousel />
             <div className='container categories mt-5'>
                 <hr/>
-                
+                <div className="categories-container">
+                    <h2>Explore categorias de livros</h2>
+
+                    <div className="row categories-row justify-content-between row-gap-3">
+                        {cols}
+                    </div>
+                </div>
+            </div>
+            <div className='container'>
+                <hr/>
+                <div className="info-container">
+                    <h2>Sobre o projeto</h2>
+                    <div className='info row'>
+                        <div className='col-4 text-center'>
+                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Livro tal</h4>
+                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        </div>
+                        <div className='col-4 text-center'>
+                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Livro tal</h4>
+                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        </div>
+                        <div className='col-4 text-center'>
+                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Livro tal</h4>
+                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <Footer />
         </div>

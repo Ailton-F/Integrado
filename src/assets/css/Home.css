@@ -6,6 +6,20 @@
     background-color: #6CD05C !important;
 }
 
-.recent {
+.categories-container{
+    margin-top: 5.5rem;
+}
+
+.info-container,
+.recent,
+.categories-row{
     margin-top: 4rem;
+}
+
+.info{
+    margin-top: 8.25rem;
+}
+
+.info-title{
+    margin-bottom: 2rem;
 }
