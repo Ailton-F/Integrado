@@ -1,8 +1,5 @@
 import {useState, useEffect } from "react";
-import Cookies from "universal-cookie";
 import jwt from "jwt-decode";
-
-const cookie = new Cookies();
 
 export const logIn = async (e)=>{
     e.preventDefault();
@@ -19,10 +16,6 @@ export const logIn = async (e)=>{
     let res = await req.json()
     let res_decoded = jwt(res.token)
 
-    cookie.set("jwt", res.token, {
-        expires: new Date(res_decoded.exp * 1000),
-        httpOnly: true,
-    });
     console.log();
 }
 

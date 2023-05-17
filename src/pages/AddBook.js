@@ -1,13 +1,13 @@
 import Header from '../components/Header';
-import '../assets/css/AddBook.css';
+import {Card, Title} from '../assets/styles/AddBookStyle';
 
 export function AddBook(props){
     return (
         <div>
             <Header shadow={true}/>
             <div className='container'>
-                <h2 className='title fw-bold'>Anunciar livro</h2>
-                <div className='card border-0 shadow-lg'>
+                <Title className='title fw-bold'>Anunciar livro</Title>
+                <Card className='card border-0 shadow-lg'>
                     <form>
                         <div class="mb-3">
                             <label for="book-title" class="form-label">Título do livro</label>
@@ -24,7 +24,7 @@ export function AddBook(props){
                         </div>
                         <a className='sbmt-btn'>teste</a>
                     </form>
-                </div>
+                </Card>
             </div>
         </div>
     );

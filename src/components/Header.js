@@ -1,6 +1,12 @@
 import HeaderLogo from '../assets/img/HeaderLogo.svg';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../assets/css/Header.css';
+import {
+    BtnSearch,
+    BtnRegister,
+    BtnLogin,
+    InputSearch,
+    SearchBar
+} from '../assets/styles/HeaderStyle';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header(props){
     return(
@@ -17,13 +23,13 @@ function Header(props){
 
                 <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 
-                    <form className="d-flex search-bar rounded-pill">
-                        <input className="form-control rounded-pill input-search py-1 px-5" type="search" placeholder="Buscar" aria-label="Search"/>
+                    <SearchBar className="d-flex search-bar rounded-pill">
+                        <InputSearch className="form-control rounded-pill py-1 px-5" type="search" placeholder="Buscar" aria-label="Search"/>
                         
-                        <button className="btn btn-search rounded-pill" type="submit">
+                        <BtnSearch className="btn btn-search rounded-pill" type="submit">
                             <i className="ri-search-line"></i>
-                        </button>
-                    </form>
+                        </BtnSearch>
+                    </SearchBar>
 
                     <ul className="navbar-nav gap-4 mb-2 mb-lg-0">
                        
@@ -32,11 +38,11 @@ function Header(props){
                         </li>
 
                         <li className="nav-item dropdown">
-                            <a className="nav-link fw-medium btn btn-login rounded-pill px-5">Entrar</a>
+                            <BtnLogin className="nav-link fw-medium btn btn-login rounded-pill px-5">Entrar</BtnLogin>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="#">Cadastre-se</a>
+                            <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="#">Cadastre-se</BtnRegister>
                         </li>
                     </ul>
 

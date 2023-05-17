@@ -3,9 +3,12 @@ import Header from '../components/Header';
 import BooksCarousel from '../components/BooksCarousel';
 import { CategoryCard } from '../components/CategoryCard';
 import { CardBook } from '../components/CardBook';
+import {
+    CarouselControls, DivMT4, InfoDiv
+
+} from '../assets/styles/HomeStyle';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-import '../assets/css/Home.css';
 
 function Home(){
     const cols = [];
@@ -16,12 +19,12 @@ function Home(){
     return (
         <div>
             <Header/>
-            <div id="carouselExampleIndicators" className="carousel slide">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+            <div id="items-Carousel" className="carousel slide">
+                <CarouselControls className="carousel-indicators">
+                    <button className="active" type="button" data-bs-target="#items-Carousel" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#items-Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#items-Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </CarouselControls>
                 
                 <div className="carousel-inner">
                     <div className="carousel-item active">
@@ -35,36 +38,37 @@ function Home(){
                     </div>
                 </div>
 
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#items-Carousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#items-Carousel" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
 
-            <div className='container recent'>
+            <DivMT4 className='container recent'>
                 <h2>Adicionados recentemente</h2>
-            </div>
+            </DivMT4>
 
             <BooksCarousel />
+            
             <div className='container categories mt-5'>
                 <hr/>
                 <div className="categories-container">
                     <h2>Explore categorias de livros</h2>
 
-                    <div className="row categories-row justify-content-between row-gap-3">
+                    <DivMT4 className="row categories-row justify-content-between row-gap-3">
                         {cols}
-                    </div>
+                    </DivMT4>
                 </div>
             </div>
             <div className='container'>
                 <hr/>
-                <div className="info-container">
+                <DivMT4 className="info-container">
                     <h2>Sobre o projeto</h2>
-                    <div className='info row'>
+                    <InfoDiv className='row'>
                         <div className='col-4 text-center'>
                             <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
                             <h4 className='info-title mt-4'>Livro tal</h4>
@@ -80,8 +84,8 @@ function Home(){
                             <h4 className='info-title mt-4'>Livro tal</h4>
                             <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
                         </div>
-                    </div>
-                </div>
+                    </InfoDiv>
+                </DivMT4>
             </div>
             <Footer />
         </div>

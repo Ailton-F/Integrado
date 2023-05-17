@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CardBook } from './CardBook';
-import '../assets/css/BooksCarousel.css';
+import { Icon, NextButton, PrevButton, Carousel, IndividualCard } from '../assets/styles/BooksCarouselStyle';
 
 function BooksCarousel() {
     const [scroll, setScroll] = useState(0);
@@ -23,18 +23,18 @@ function BooksCarousel() {
 
 
     return (
-        <div className="books-carousel ms-md-5">
+        <Carousel className="ms-md-5">
             <div className='d-flex cards-container transition' style={{ 'left': scroll }}>
                 {cards.map((card, index) => (
-                    <div className='card-individual' key={index}>
+                    <IndividualCard className='card-individual' key={index}>
                         { card }
-                    </div>
+                    </IndividualCard>
                 ))}
             </div>
-            <button className='nex control btn shadow-lg' onClick={handleNex} disabled={scroll === -4500 }><i className="ri-arrow-right-s-line"></i></button>
+            <NextButton className='control btn shadow-lg' onClick={handleNex} disabled={scroll === -4500 }><Icon className="ri-arrow-right-s-line"></Icon></NextButton>
              
-            <button className='pre control btn shadow-lg' onClick={handlePre} disabled={scroll === 0}><i className="ri-arrow-left-s-line"></i></button>
-        </div>
+            <PrevButton className='control btn shadow-lg' onClick={handlePre} disabled={scroll === 0}><Icon className="ri-arrow-left-s-line"></Icon></PrevButton>
+        </Carousel>
     );
 }
 
