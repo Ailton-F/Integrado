@@ -3,7 +3,8 @@ import jwt from "jwt-decode";
 
 export const logIn = async (e)=>{
     e.preventDefault();
-    
+
+    const url = process.env.REACT_APP_URL;
     const reqOpt = {
         method: "POST",
         headers: {"content-type":"application/json"},
@@ -12,7 +13,7 @@ export const logIn = async (e)=>{
             password: e.target.password.value
         })
     }
-    let req = await fetch('http://127.0.0.1:8000/api/login', reqOpt)
+    let req = await fetch(`${url}/api/login`, reqOpt)
     let res = await req.json()
     let res_decoded = jwt(res.token)
 
