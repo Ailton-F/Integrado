@@ -4,13 +4,37 @@ import { addBook } from '../services/BookService';
 import {Card, FileIcon, FileInput, SbmtBtn, TextMuted, TinyText, Title} from '../assets/styles/AddBookStyle';
 
 export function AddBook(props){
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const title = e.target.title.value;
+        const author = e.target.author.value;
+        const price = Number(e.target.price.value);
+        const desc = e.target.desc.value;
+        const file = e.target.formFile.files[0];
+        
+        const body = new FormData();
+        body.append('title', title);
+        body.append('author', author);
+        body.append('description', desc);
+        body.append('price', price);
+        body.append('img', file);
+        
+        try {
+          const post = await addBook(body);
+          console.log(post);
+        } catch (error) {
+          console.error(error);
+        }
+    };
+
     return (
         <div>
             <Header shadow={true}/>
             <div className='container'>
                 <Title className='title fw-bold'>Anunciar livro</Title>
                 <Card className='card border-0 shadow-lg'>
-                    <form onSubmit={addBook}>
+                    <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="mb-4">
                             <label htmlFor="book-title" className="form-label">Título do livro</label>
                             <input type="text" className="form-control" name="title"/>
@@ -38,7 +62,7 @@ export function AddBook(props){
                             <textarea className="form-control" id="desc" name="desc" rows="5" placeholder='Ex: Bom estado, impresso em 2001...'></textarea>
                         </div>
 
-                        {/* <div className="mb-4">
+                        <div className="mb-4">
                             <p>Fotos <TextMuted>(até 4 fotos)</TextMuted></p>
 
                             <FileInput htmlFor="formFile" className="form-label rounded text-center">
@@ -47,8 +71,8 @@ export function AddBook(props){
                                 <TinyText>Apenas em JPG e PNG</TinyText>
                             </FileInput>
 
-                            <input className="d-none form-control" type="file" id="formFile" />
-                        </div> */}
+                            <input className="d-none form-control" type="file" id="formFile" name="formFile"/>
+                        </div>
 
                         <SbmtBtn className="text-white px-5 py-2" type="submit" value="Enviar"/>
                     </form>
