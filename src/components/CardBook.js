@@ -1,10 +1,10 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import {Book, BtnDetails} from '../assets/styles/CardBookStyle';
+import {BtnDetails} from '../assets/styles/CardBookStyle';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export function CardBook(){
     return(
-    <Book className='card mx-3'>
+    <div className='card mx-3'>
         <div className='card-header border-0 text-center bg-transparent'>
             <LazyLoadImage className='rounded' src="https://source.unsplash.com/random/238x342/?img=1" alt="random image" effect='blur'/>
         </div>
@@ -15,6 +15,6 @@ export function CardBook(){
             </div>
             <BtnDetails href="#" className='btn btn-success rounded-pill mt-2'>Ver detalhes »</BtnDetails>
         </div>
-    </Book>
+    </div>
     );
 }

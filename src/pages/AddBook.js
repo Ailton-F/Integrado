@@ -32,7 +32,7 @@ export function AddBook(props){
         <div>
             <Header shadow={true}/>
             <div className='container'>
-                <Title className='title fw-bold'>Anunciar livro</Title>
+                <Title className='fw-bold'>Anunciar livro</Title>
                 <Card className='card border-0 shadow-lg'>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="mb-4">

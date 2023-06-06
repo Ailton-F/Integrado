@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const SearchBar = styled.form`
-    margin-left: 4rem;
     border: 1px solid #D2D2D2;
+`;
+
+export const BrandIcon = styled.a`
+    margin-right: 4rem;
 `;
 
 export const BtnSearch = styled.button`

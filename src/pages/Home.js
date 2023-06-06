@@ -1,11 +1,14 @@
+import AccessIcon from '../assets/img/acessibilidade.svg';
+import ComIcon from '../assets/img/comunicacao.svg';
+import SellIcon from '../assets/img/venda.svg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import BooksCarousel from '../components/BooksCarousel';
 import { CategoryCard } from '../components/CategoryCard';
-import { CardBook } from '../components/CardBook';
 import {
-    CarouselControls, DivMT4, InfoDiv
-
+    CarouselControls,
+    DivMT4,
+    InfoDiv
 } from '../assets/styles/HomeStyle';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
@@ -48,18 +51,21 @@ function Home(){
                 </button>
             </div>
 
-            <DivMT4 className='container recent'>
-                <h2>Adicionados recentemente</h2>
-            </DivMT4>
+            <div className='container'>
 
-            <BooksCarousel />
+                <DivMT4>
+                    <h2>Adicionados recentemente</h2>
+                </DivMT4>
+
+                <BooksCarousel />
+            </div>
             
-            <div className='container categories mt-5'>
+            <div className='categories container mt-5'>
                 <hr/>
-                <div className="categories-container">
+                <div>
                     <h2>Explore categorias de livros</h2>
 
-                    <DivMT4 className="row categories-row justify-content-between row-gap-3">
+                    <DivMT4 className="row justify-content-between">
                         {cols}
                     </DivMT4>
                 </div>
@@ -69,20 +75,20 @@ function Home(){
                 <DivMT4 className="info-container">
                     <h2>Sobre o projeto</h2>
                     <InfoDiv className='row'>
-                        <div className='col-4 text-center'>
-                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
-                            <h4 className='info-title mt-4'>Livro tal</h4>
-                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        <div className='col-12 col-md-4 text-center'>
+                            <img src={AccessIcon} alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Acessibilidade</h4>
+                            <p className='px-5'>Livros a preços mais acessíveis que cabem no seu bolso.</p>
                         </div>
-                        <div className='col-4 text-center'>
-                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
-                            <h4 className='info-title mt-4'>Livro tal</h4>
-                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        <div className='col-12 col-md-4 text-center'>
+                            <img src={ComIcon} alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Entrega Facilitada</h4>
+                            <p className='px-5'>Entrega dos livros combinada com o vendedor para ser mais prática.</p>
                         </div>
-                        <div className='col-4 text-center'>
-                            <img className='rounded-circle' src="https://source.unsplash.com/random/140x140/?img=1" alt="Imagem aleatória" />
-                            <h4 className='info-title mt-4'>Livro tal</h4>
-                            <p>Ana paula escreve aqui um texto bem bonito paulera sobre o projeto </p>
+                        <div className='col-12 col-md-4 text-center'>
+                            <img src={SellIcon} alt="Imagem aleatória" />
+                            <h4 className='info-title mt-4'>Venda rápida</h4>
+                            <p className='px-5'>Você pode vender seus livros rapidamente com o site.</p>
                         </div>
                     </InfoDiv>
                 </DivMT4>

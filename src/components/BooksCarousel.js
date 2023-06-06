@@ -1,39 +1,37 @@
-import React, { useState } from 'react';
+import { Icon, NextButton, PrevButton, Carousel, IndividualCard, CardContainer } from '../assets/styles/BooksCarouselStyle';
+import React, { useState, useEffect } from 'react';
 import { CardBook } from './CardBook';
-import { Icon, NextButton, PrevButton, Carousel, IndividualCard } from '../assets/styles/BooksCarouselStyle';
 
 function BooksCarousel() {
-    const [scroll, setScroll] = useState(0);
-    const [hoverOffset, setHoverOffset] = useState(0);
-
     const cards = [];
-    for(let i = 0; i < 15; i++){
+    for(let i = 0; i < 10; i++){
         cards.push(<CardBook key={i}/>)
     }
 
     const handlePre = () => {
-        setScroll(scroll + 500);
-        console.log(scroll)
+        document.querySelector('.cards-container').scrollLeft-=300
     };
-
     const handleNex = () => {
-        setScroll(scroll - 500);
-        console.log(scroll)
+        document.querySelector('.cards-container').scrollLeft+=300
     };
-
 
     return (
-        <Carousel className="ms-md-5">
-            <div className='d-flex cards-container transition' style={{ 'left': scroll }}>
+        <Carousel>
+            <CardContainer className='d-flex transition cards-container'>
                 {cards.map((card, index) => (
-                    <IndividualCard className='card-individual' key={index}>
+                    <IndividualCard key={index}>
                         { card }
                     </IndividualCard>
                 ))}
-            </div>
-            <NextButton className='control btn shadow-lg' onClick={handleNex} disabled={scroll === -4500 }><Icon className="ri-arrow-right-s-line"></Icon></NextButton>
+            </CardContainer>
+
+            <NextButton pos={{'lg': 95,'md': 90, 'sm': 85}} className='control btn shadow-lg' onClick={handleNex}>
+                <Icon className="ri-arrow-right-s-line"></Icon>
+            </NextButton>
              
-            <PrevButton className='control btn shadow-lg' onClick={handlePre} disabled={scroll === 0}><Icon className="ri-arrow-left-s-line"></Icon></PrevButton>
+            <PrevButton pos={{'lg': 95,'md': 90, 'sm': 85}} className='control btn shadow-lg' onClick={handlePre}>
+                <Icon className="ri-arrow-left-s-line"></Icon>
+            </PrevButton>
         </Carousel>
     );
 }

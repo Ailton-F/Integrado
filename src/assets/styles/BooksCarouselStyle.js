@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import { responsive } from "./Responsive";
 
 export const Carousel = styled.div`
     position: relative;
@@ -30,6 +31,17 @@ export const Carousel = styled.div`
     }
 `;
 
+export const CardContainer = styled.div`
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar{
+        display: none;
+    }
+`;
+
 export const Icon = styled.i`
     font-size: 2rem;
     color: #727CF5;
@@ -37,9 +49,29 @@ export const Icon = styled.i`
 
 export const NextButton = styled.button`
     left: 95%;
+    ${({pos})=>{
+        return responsive(
+            pos, 
+            (breakpoint) => 
+            css`
+                left: ${pos[breakpoint.point]}%;
+            `
+        );
+    }}
 `;
 
-export const PrevButton = styled.button``;
+export const PrevButton = styled.button`
+    right: 95%;
+    ${({pos})=>{
+        return responsive(
+            pos, 
+            (breakpoint) => 
+            css`
+                right: ${pos[breakpoint.point]}%;
+            `
+        );
+    }}
+`;
 
 export const IndividualCard = styled.div`
     transition: transform .5s ease;
