@@ -54,7 +54,7 @@ function Home(){
             <div className='container'>
 
                 <DivMT4>
-                    <h2>Adicionados recentemente</h2>
+                    <h2 className='m-0'>Adicionados recentemente</h2>
                 </DivMT4>
 
                 <BooksCarousel />
