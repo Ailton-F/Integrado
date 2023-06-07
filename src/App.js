@@ -3,6 +3,7 @@ import {Logon, Cad} from './pages/Logon';
 import { AddBook } from "./pages/AddBook";
 import Home from './pages/Home';
 import { EditUser } from "./pages/EditUser";
+import { Book } from "./pages/Book";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/cadastro" element={<Cad />}/>
             <Route path="/add-book" element={<AddBook />}/>
             <Route path="/edit-user" element={<EditUser />}/>
+            <Route path="/book" element={<Book />}/>
           </Routes>
         </BrowserRouter>
     </div>
