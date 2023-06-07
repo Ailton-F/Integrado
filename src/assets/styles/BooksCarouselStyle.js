@@ -32,6 +32,7 @@ export const Carousel = styled.div`
 `;
 
 export const CardContainer = styled.div`
+    padding-top: 4rem;
     overflow-x: auto;
     scroll-behavior: smooth;
     -ms-overflow-style: none;
