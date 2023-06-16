@@ -39,11 +39,13 @@ function Header(props){
                         </li>
 
                         <li className="nav-item dropdown">
-                            <BtnLogin className="nav-link fw-medium btn btn-login rounded-pill px-5">Entrar</BtnLogin>
+                            <BtnLogin className="nav-link fw-medium btn btn-login rounded-pill px-5" href="/login">
+                              Entrar
+                            </BtnLogin>
                         </li>
 
                         <li className="nav-item">
-                            <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="#">Cadastre-se</BtnRegister>
+                            <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="/register">Cadastre-se</BtnRegister>
                         </li>
                     </ul>
 

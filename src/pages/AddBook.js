@@ -22,7 +22,7 @@ export function AddBook(props){
         
         try {
           const post = await addBook(body);
-          console.log(post);
+          // console.log(post);
         } catch (error) {
           console.error(error);
         }
