@@ -9,9 +9,16 @@ export const BlockTest = styled.div`
 
 export const BuyBtn = styled.input`
     background-color: #6CD05C;
-    width: 150px;
-    height: 40px;
+    border: 1px solid #6CD05C;
+    padding: .3em 1.5em;
+    margin-right: 2em;
     border-radius: 500px;
+
+    :hover{
+        background-color: white;
+        border-color: #6CD05C;
+        color: #6CD05C !important;
+    }
 
     :focus{
         background-color: #5db450;
