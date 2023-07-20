@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import {Title} from '../assets/styles/AddBookStyle';
-import { Card, SbmtBtn, Form} from '../assets/styles/EditUserStyle';
+import { Card, SbmtBtn, Form, DeleteBtn} from '../assets/styles/EditUserStyle';
 
 
 export function EditUser(props){
@@ -66,6 +66,9 @@ export function EditUser(props){
                     </div>
                 </Card>
 
+                <div className='d-flex mt-4'>
+                <DeleteBtn className='text-white justify-content-center'>Deletar conta</DeleteBtn>
+                </div>
 
             </div>
             <Footer/>
