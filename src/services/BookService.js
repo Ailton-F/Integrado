@@ -2,10 +2,10 @@ import {useState, useEffect } from "react";
 
 export const addBook = async (bookData)=>{
 
-    const url = process.env.REACT_APP_URL;
+    const api_url = process.env.REACT_APP_API_URL;
     
 
-    let post = await fetch(`${url}/api/books/`, {
+    let post = await fetch(`${api_url}/api/books/`, {
         method: "POST",
         body: bookData
     });

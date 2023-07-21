@@ -1,5 +1,5 @@
 import Logo from '../assets/img/Logo.svg';
-import { logIn, cad } from '../services/UserService';
+import { cad } from '../services/UserService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     Input, 
@@ -11,7 +11,14 @@ import {
     TinyTxt
 } from '../assets/styles/LogonStyle';
 
+import { AuthContext } from '../context/auth';
+import { useContext } from 'react';
+
 function Logon(){
+    
+    const { authenticated, logIn } = useContext(AuthContext);
+    console.log(authenticated);
+
     return(
         <div className="d-flex justify-content-center align-items-center vh-100">
             <Card className="card border-0 shadow-lg flex-grow-1">
@@ -21,11 +28,11 @@ function Logon(){
                 </div>
                 <div className="card-body">
                     <form className="form" onSubmit={ logIn }>
-                        <label className="form-label" for="email">E-mail</label>
+                        <label className="form-label" htmlFor="email">E-mail</label>
                         <div className="form-group">
                             <Input className="form-control" name="email" type="email" required/>
                         </div>
-                        <label className="form-label mt-2" for="password">Senha</label>
+                        <label className="form-label mt-2" htmlFor="password">Senha</label>
 
                         <div className="form-group d-flex align-items-center">
                             <Pass className="form-control pass" name="password" type="password" required/>

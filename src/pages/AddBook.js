@@ -1,9 +1,19 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { addBook } from '../services/BookService';
+import LoadingCircle from '../assets/styles/Loading';
 import {Card, FileIcon, FileInput, SbmtBtn, TextMuted, TinyText, Title} from '../assets/styles/AddBookStyle';
 
+import { AuthContext } from '../context/auth';
+import { useContext } from 'react';
+
 export function AddBook(props){
+
+    const { authenticated, loading} = useContext(AuthContext);
+    
+    if(loading){return <LoadingCircle/>}
+    if(!authenticated){window.location = '/login'};
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         

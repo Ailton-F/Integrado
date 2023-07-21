@@ -21,10 +21,21 @@ export const BtnSearch = styled.button`
 
 export const BtnLogin = styled.a`
     border: 1px solid #d2d2d2;
+
+    :hover{
+        background-color: #e2e2e2;
+    }
 `;
 
 export const BtnRegister = styled.a`
     background-color: #6CD05C;
+    border: 1px solid #6CD05C;
+
+    :hover{
+        background-color: white !important;
+        border: 1px solid #6CD05C;
+        color: #6CD05C !important;
+    }
 `;
 
 export const InputSearch = styled.input`
