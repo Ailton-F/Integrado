@@ -32,7 +32,7 @@ export const AuthProvider = ({children}) => {
         }
         let req = await fetch(`${url}/api/users/login/`, reqOpt);
         let res = await req.json();
-
+        
         window.localStorage.setItem('token', JSON.stringify(res.token));
         
         setAuthenticated(true);

@@ -49,9 +49,37 @@ function Header(props){
                 </li>
     
                 <li className="nav-item dropdown">
-                    <BtnLogin href="/login" className="nav-link fw-medium btn btn-login rounded-pill px-4">Meu perfil</BtnLogin>
+                    <BtnLogin className="nav-link dropdown-toggle fw-medium btn btn-login rounded-pill px-4" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil</BtnLogin>
+
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li className='border-bottom d-flex align-items-center px-4'>
+                            <i className="ri-user-line"></i><a className="dropdown-item" href="/edit-user">Minha conta</a>
+                        </li>
+
+                        <li className='border-bottom d-flex align-items-center px-4'>
+                            <i className="ri-coins-line"></i><a className="dropdown-item" href="#">Minhas vendas</a>
+                        </li>
+
+                        <li className='border-bottom d-flex align-items-center px-4'>
+                            <i className="ri-shopping-bag-2-line"></i><a className="dropdown-item" href="#">Minhas compras</a>
+                        </li>
+
+                        <li className='border-bottom d-flex align-items-center px-4'>
+                            <i className="ri-notification-4-line"></i><a className="dropdown-item" href="#">Notificações</a>
+                        </li>
+
+                        <li className='border-bottom d-flex align-items-center px-4'>
+                            <i className="ri-chat-3-line"></i><a className="dropdown-item" href="#">Minhas vendas</a>
+                        </li>
+
+                        <li className='d-flex align-items-center px-4'>
+                            <i className="ri-logout-box-r-line"></i><a className="dropdown-item" href="#">Sair</a>
+                        </li>
+
+                    </ul>
+        
                 </li>
-    
+
                 <li className="nav-item">
                     <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="/add-book">Vender</BtnRegister>
                 </li>
@@ -65,7 +93,7 @@ function Header(props){
         <nav className={'navbar navbar-expand-lg bg-transparent ' + (props.shadow ? 'shadow-lg':'')}>
             <div className="container">
 
-                <BrandIcon className="navbar-brand" href="#">
+                <BrandIcon className="navbar-brand" href="/">
                     <img src={HeaderLogo} alt='Livresse Logo'/>
                 </BrandIcon>
 

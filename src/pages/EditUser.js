@@ -3,8 +3,39 @@ import Footer from '../components/Footer';
 import {Title} from '../assets/styles/AddBookStyle';
 import { Card, SbmtBtn, Form, DeleteBtn} from '../assets/styles/EditUserStyle';
 
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth';
+
 
 export function EditUser(props){
+    const {userData} = useContext(AuthContext);
+
+    function handleSubmit(e){
+        e.preventDefault();
+        
+        const api_url = process.env.REACT_APP_API_KEY;
+        const user_id = userData.id;
+        const token = JSON.parse(window.localStorage.getItem('token'));
+
+        const reqOpt = {
+            method: "PUT",
+            headers: new Headers({
+                "content-type": "application/json",
+                "Authorization": `Bearer ${token}` // Inclui o token de autenticação no cabeçalho
+            }),
+            body: JSON.stringify({
+                name: e.target.completeName.value,
+                idName: e.target.idName.value
+            })
+        }
+
+        try{
+            fetch(`${api_url}/api/users/${user_id}/`, reqOpt)
+        }
+        catch(error){
+            console.error('Failed to fetch, edit user', error)
+        }
+    }
     return(
         <div>
             <Header shadow={true}/>
@@ -16,14 +47,14 @@ export function EditUser(props){
                         <h4 className="mb-3">Seus Dados</h4>
                     </div>
                     <div className='card-body mt-4'>
-                        <Form className="mb-5">
+                        <Form className="mb-5" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label className="form-label text-muted" htmlFor="completeName">Nome completo</label>
-                                <input className="form-control" name="completeName"/>
+                                <input className="form-control" name="completeName" placeholder={userData.name}/>
                             </div>
                             <div className="form-group mt-3">
                                 <label className="form-label text-muted" htmlFor="idName">Nome de identificação</label>
-                                <input className="form-control" name="idName"/>
+                                <input className="form-control" name="idName" placeholder={userData.username}/>
                             </div>
                             <SbmtBtn className="btn rounded-pill text-white px-4" type='submit'>Salvar edição</SbmtBtn>
                         </Form>
@@ -38,11 +69,11 @@ export function EditUser(props){
                         <Form className="mb-5">
                             <div className="form-group">
                                 <label className="form-label">E-mail</label>
-                                <p className='text-muted'>teste@gmail.com</p>
+                                <p className='text-muted'>{userData.email}</p>
                             </div>
                             <div className="form-group mt-3">
                                 <label className="form-label">Senha</label>
-                                <p className='text-muted'>senhaforte123</p>
+                                <p className='text-muted'>Clique aqui para alterar &gt; </p>
                             </div>
                         </Form>
                     </div>
