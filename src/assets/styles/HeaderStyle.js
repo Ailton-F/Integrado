@@ -21,18 +21,20 @@ export const BtnSearch = styled.button`
 
 export const BtnLogin = styled.a`
     border: 1px solid #d2d2d2;
+
     :hover{
-      background-color: #e1e1e1;
+        background-color: #e2e2e2;
     }
 `;
 
 export const BtnRegister = styled.a`
     background-color: #6CD05C;
-    box-sizing: border-box;
+    border: 1px solid #6CD05C;
+
     :hover{
-      background-color: white;
-      color: #6CD05C !important;
-      box-shadow: 0 0 0 1px #6CD05C;
+        background-color: white !important;
+        border: 1px solid #6CD05C;
+        color: #6CD05C !important;
     }
 `;
 

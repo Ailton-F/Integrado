@@ -2,10 +2,10 @@ import {useState, useEffect } from "react";
 
 export const addBook = async (bookData)=>{
 
-    const url = process.env['REACT_APP_URL'];
-  
-    console.log(url)
-    let post = await fetch(`https://integrado-backend.ailtonborges.repl.co/api/books/`, {
+    const api_url = process.env.REACT_APP_API_URL;
+    
+
+    let post = await fetch(`${api_url}/api/books/`, {
         method: "POST",
         body: bookData
     });

@@ -9,7 +9,58 @@ import {
 } from '../assets/styles/HeaderStyle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { AuthContext } from '../context/auth';
+import { useContext } from 'react';
+import jwt from "jwt-decode";
+
 function Header(props){
+    const { authenticated, userData } = useContext(AuthContext);
+    console.log(authenticated)
+    function NavList() {
+
+        if(!authenticated){
+            return(
+            <ul className="navbar-nav gap-4 ms-md-5 mb-2 mb-lg-0">
+                            
+                <li className="nav-item">
+                    <a className="nav-link fw-medium text-black px-0 py-2" href="#">Lista de desejos</a>
+                </li>
+    
+                <li className="nav-item dropdown">
+                    <BtnLogin href="/login" className="nav-link fw-medium btn btn-login rounded-pill px-5">Entrar</BtnLogin>
+                </li>
+    
+                <li className="nav-item">
+                    <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="/register">Cadastre-se</BtnRegister>
+                </li>
+    
+            </ul>
+            )
+        } else {
+            return(
+            <ul className="navbar-nav gap-4 ms-md-5 mb-2 mb-lg-0">
+                            
+                <li className="nav-item">
+                    <a className="nav-link fw-medium text-black px-0 py-2" href="#">Olá, {userData.name}</a>
+                </li>
+
+                <li className="nav-item">
+                    <a className="nav-link fw-medium text-black px-0 py-2" href="#">Lista de desejos</a>
+                </li>
+    
+                <li className="nav-item dropdown">
+                    <BtnLogin href="/login" className="nav-link fw-medium btn btn-login rounded-pill px-4">Meu perfil</BtnLogin>
+                </li>
+    
+                <li className="nav-item">
+                    <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="/add-book">Vender</BtnRegister>
+                </li>
+    
+            </ul>
+            )
+        }
+    }
+
     return(
         <nav className={'navbar navbar-expand-lg bg-transparent ' + (props.shadow ? 'shadow-lg':'')}>
             <div className="container">
@@ -32,22 +83,7 @@ function Header(props){
                         </BtnSearch>
                     </SearchBar>
 
-                    <ul className="navbar-nav gap-4 ms-md-5 mb-2 mb-lg-0">
-                       
-                        <li className="nav-item">
-                            <a className="nav-link fw-medium text-black px-0 py-2" href="#">Lista de desejos</a>
-                        </li>
-
-                        <li className="nav-item dropdown">
-                            <BtnLogin className="nav-link fw-medium btn btn-login rounded-pill px-5" href="/login">
-                              Entrar
-                            </BtnLogin>
-                        </li>
-
-                        <li className="nav-item">
-                            <BtnRegister className="nav-link fw-medium btn btn-register rounded-pill text-white px-4" href="/register">Cadastre-se</BtnRegister>
-                        </li>
-                    </ul>
+                    <NavList/>
 
                 </div>
             </div>

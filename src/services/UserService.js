@@ -1,25 +1,3 @@
-import {useState, useEffect } from "react";
-import jwt from "jwt-decode";
-
-export const logIn = async (e)=>{
-    e.preventDefault();
-
-    const url = process.env.REACT_APP_URL;
-    const reqOpt = {
-        method: "POST",
-        headers: {"content-type":"application/json"},
-        body: JSON.stringify({
-            email: e.target.email.value,
-            password: e.target.password.value
-        })
-    }
-    let req = await fetch(`${url}/api/login`, reqOpt)
-    let res = await req.json()
-    let res_decoded = jwt(res.token)
-
-    console.log();
-}
-
 export const cad = async (e)=>{
     e.preventDefault();
     

@@ -1,12 +1,31 @@
 import { Icon, NextButton, PrevButton, Carousel, IndividualCard, CardContainer } from '../assets/styles/BooksCarouselStyle';
 import React, { useState, useEffect } from 'react';
 import { CardBook } from './CardBook';
+import LoadingCircle from '../assets/styles/Loading';
 
 function BooksCarousel() {
-    const cards = [];
-    for(let i = 0; i < 10; i++){
-        cards.push(<CardBook key={i}/>)
-    }
+    const [books, setBooks] = useState([]);
+    const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(()=>{
+
+        (async () => {
+            try {
+                const api = process.env.REACT_APP_API_KEY;
+                let req = await fetch(`${api}/api/books/`);
+                let recentBooks = await req.json();
+                setBooks(recentBooks);
+                books.map((book, i)=>{
+                    cards.push(<CardBook key={i} title={book.title} author={book.author}/>)
+                });
+            } catch (error) {
+                console.error('Error fetching recent books:', error);
+            }
+        })();
+
+        setLoading(false);
+    },[])
 
     const handlePre = () => {
         document.querySelector('.cards-container').scrollLeft-=300
@@ -14,6 +33,8 @@ function BooksCarousel() {
     const handleNex = () => {
         document.querySelector('.cards-container').scrollLeft+=300
     };
+
+    if(loading){return <LoadingCircle/>}
 
     return (
         <Carousel>

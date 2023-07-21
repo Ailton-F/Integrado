@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import AccessIcon from '../assets/img/acessibilidade.svg';
 import ComIcon from '../assets/img/comunicacao.svg';
 import SellIcon from '../assets/img/venda.svg';
@@ -14,7 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 
 function Home(){
-    const cols = [];
+    const [cols, setCols] = useState([]);
+    
     for(let i = 0; i < 6; i++){
         cols.push(<CategoryCard title="Título" src="https://source.unsplash.com/random/381x180/?img=1" key={i}/>)
     }

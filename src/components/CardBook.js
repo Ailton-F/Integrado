@@ -2,7 +2,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {BtnDetails} from '../assets/styles/CardBookStyle';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export function CardBook(){
+export function CardBook(props){
     return(
     <div className='card mx-3'>
         <div className='card-header border-0 text-center bg-transparent'>
@@ -10,8 +10,8 @@ export function CardBook(){
         </div>
         <div className='card-body text-center'>
             <div className='book-info mb-1'>
-                <h6 className='fw-bold'>Nome do livro</h6>
-                <span className='fw-light text-muted'>Nome do autor</span>
+                <h6 className='fw-bold'>{props.title}</h6>
+                <span className='fw-light text-muted'>{props.author}</span>
             </div>
             <BtnDetails href="#" className='btn btn-success rounded-pill mt-2'>Ver detalhes »</BtnDetails>
         </div>
