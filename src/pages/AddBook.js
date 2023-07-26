@@ -14,25 +14,29 @@ export function AddBook(props){
     if(loading){return <LoadingCircle/>}
     if(!authenticated){window.location = '/login'};
 
-    const handleSubmit = async (e) => {
+    const HandleSubmit = async (e) => {
         e.preventDefault();
         
         const title = e.target.title.value;
         const author = e.target.author.value;
         const price = Number(e.target.price.value);
         const desc = e.target.desc.value;
-        const file = e.target.formFile.files[0];
+        const file = e.target.formFile.files;
+        const fileArray = Array.from(file).slice(0, 4);
         
         const body = new FormData();
         body.append('title', title);
         body.append('author', author);
         body.append('description', desc);
         body.append('price', price);
-        body.append('img', file);
+        body.append('img1', fileArray[0]);
+        body.append('img2', fileArray[1]);
+        body.append('img3', fileArray[2]);
+        body.append('img4', fileArray[3]);
         
         try {
           const post = await addBook(body);
-          // console.log(post);
+          console.log(post);
         } catch (error) {
           console.error(error);
         }
@@ -44,7 +48,7 @@ export function AddBook(props){
             <div className='container'>
                 <Title className='fw-bold'>Anunciar livro</Title>
                 <Card className='card border-0 shadow-lg'>
-                    <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <form onSubmit={HandleSubmit} encType="multipart/form-data">
                         <div className="mb-4">
                             <label htmlFor="book-title" className="form-label">Título do livro</label>
                             <input type="text" className="form-control" name="title"/>
