@@ -11,6 +11,7 @@ export const cad = async (e)=>{
         })
     }
 
-    let req = await fetch('http://127.0.0.1:8000/api/register', reqOpt);
-    let res = await req.json();
+    let req = await fetch('http://127.0.0.1:8000/api/users/', reqOpt)
+    let res = await req.json()
+    console.log()
 }

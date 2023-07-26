@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import {Title} from '../assets/styles/AddBookStyle';
+import LoadingCircle from '../assets/styles/Loading';
 import { Card, SbmtBtn, Form, DeleteBtn} from '../assets/styles/EditUserStyle';
 
 import { useContext } from 'react';
@@ -8,7 +9,10 @@ import { AuthContext } from '../context/auth';
 
 
 export function EditUser(props){
-    const {userData} = useContext(AuthContext);
+    const { userData, authenticated, loading} = useContext(AuthContext);
+    
+    if(loading){return <LoadingCircle/>}
+    if(!authenticated){window.location = '/login'};
 
     function handleSubmit(e){
         e.preventDefault();

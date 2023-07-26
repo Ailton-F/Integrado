@@ -22,7 +22,7 @@ export function Payment(props){
                     <p>Pix de pagamento</p>
                     <p className='text-secondary'>(84) 0-0000-0000</p>
                     <br/>
-                    <p>Comprovante de pagamente <p className='text-secondary'>(disponibilize o comprovante para fins de segurança)</p></p>
+                    <p>Comprovante de pagamento <p className='text-secondary'>(disponibilize o comprovante para fins de segurança)</p></p>
                     <FileInput htmlFor="formFile" className="form-label rounded text-center">
                         <FileIcon className='ri-image-add-line'></FileIcon>
                         <p className='fw-bold m-0'>Adicionar fotos</p>
