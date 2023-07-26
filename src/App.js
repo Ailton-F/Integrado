@@ -6,6 +6,7 @@ import { EditUser } from "./pages/EditUser";
 import { Book } from "./pages/Book";
 import { AuthProvider } from "./context/auth";
 import { Payment } from './pages/Payment';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

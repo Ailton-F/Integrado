@@ -3,29 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { CardBook } from './CardBook';
 import LoadingCircle from '../assets/styles/Loading';
 
-function BooksCarousel() {
-    const [books, setBooks] = useState([]);
+function BooksCarousel(props) {
     const [cards, setCards] = useState([]);
-    const [loading, setLoading] = useState(true);
+
     
-    useEffect(()=>{
+    useEffect(() => {
+        if (Array.isArray(props.books)) {
+            let cards = props.books.map((book, i) => (
+                <CardBook key={i} title={book.title} author={book.author} />
+            ));
+            setCards(cards);
+        }
+    }, [props.books]);
 
-        (async () => {
-            try {
-                const api = process.env.REACT_APP_API_KEY;
-                let req = await fetch(`${api}/api/books/`);
-                let recentBooks = await req.json();
-                setBooks(recentBooks);
-                books.map((book, i)=>{
-                    cards.push(<CardBook key={i} title={book.title} author={book.author}/>)
-                });
-            } catch (error) {
-                console.error('Error fetching recent books:', error);
-            }
-        })();
 
-        setLoading(false);
-    },[])
+
 
     const handlePre = () => {
         document.querySelector('.cards-container').scrollLeft-=300
@@ -34,7 +26,7 @@ function BooksCarousel() {
         document.querySelector('.cards-container').scrollLeft+=300
     };
 
-    if(loading){return <LoadingCircle/>}
+    if(props.loading){return <LoadingCircle/>}
 
     return (
         <Carousel>

@@ -14,10 +14,11 @@ import {
 import { AuthContext } from '../context/auth';
 import { useContext } from 'react';
 
+import { ToastContainer } from 'react-toastify';
+
 function Logon(){
     
     const { authenticated, logIn } = useContext(AuthContext);
-    console.log(authenticated);
 
     return(
         <div className="d-flex justify-content-center align-items-center vh-100">
@@ -48,6 +49,7 @@ function Logon(){
                     <p className="text-center mt-5 pb-3">Não possui conta? <Link className="fw-bold text-decoration-none">Cadastre-se</Link></p>
                 </div>
             </Card>
+            <ToastContainer/>
         </div>
     )
 }
@@ -63,17 +65,17 @@ function Cad(){
                 <div className="card-body">
                     <form className="form" onSubmit={ cad }>
                         
-                        <label className="form-label" for="name">Nome de identificação</label>
+                        <label className="form-label" htmlFor="name">Nome de identificação</label>
                         <div className="form-group">
                             <Input className="form-control custom-input" name="name" type="text" required/>
                         </div>
 
-                        <label className="form-label mt-2" for="email">E-mail</label>
+                        <label className="form-label mt-2" htmlFor="email">E-mail</label>
                         <div className="form-group">
                             <Input className="form-control custom-input" name="email" type="email" required/>
                         </div>
                         
-                        <label className="form-label mt-2" for="password">Senha</label>
+                        <label className="form-label mt-2" htmlFor="password">Senha</label>
                         <div className="form-group d-flex align-items-center">
                             <Pass className="form-control pass" name="password" type="password" required/>
                             <Icon className="icon input-group-text bg-transparent">

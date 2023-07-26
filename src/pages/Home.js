@@ -16,10 +16,34 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 
 function Home(){
     const [cols, setCols] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
     
-    for(let i = 0; i < 6; i++){
-        cols.push(<CategoryCard title="Título" src="https://source.unsplash.com/random/381x180/?img=1" key={i}/>)
-    }
+    
+    useEffect(() => {
+        let colunas = [];
+        
+        for(let i = 0; i < 6; i++){
+            colunas.push(<CategoryCard title="Título" src="https://source.unsplash.com/random/381x180/?img=1" key={`c${i}`}/>)
+        }
+        
+        const fetchData = async () => {
+            try {
+                const api = process.env.REACT_APP_API_KEY;
+                let req = await fetch(`${api}/api/books/`);
+                let recentBooks = await req.json();
+                setBooks(recentBooks);
+            } catch (error) {
+                console.error('Erro ao buscar os livros recentes:', error);
+            }
+        };
+
+
+        setBooks(fetchData);
+        setCols(colunas);
+        setLoading(false);
+
+    }, []);
 
     return (
         <div>
@@ -59,7 +83,8 @@ function Home(){
                     <h2 className='m-0'>Adicionados recentemente</h2>
                 </DivMT4>
 
-                <BooksCarousel />
+                <BooksCarousel books={books} loading={loading}/>
+
             </div>
             
             <div className='categories container mt-5'>

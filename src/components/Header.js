@@ -11,11 +11,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { AuthContext } from '../context/auth';
 import { useContext } from 'react';
-import jwt from "jwt-decode";
 
 function Header(props){
-    const { authenticated, userData } = useContext(AuthContext);
-    console.log(authenticated)
+    const { authenticated, userData, logOut } = useContext(AuthContext);
+
     function NavList() {
 
         if(!authenticated){
@@ -72,8 +71,8 @@ function Header(props){
                             <i className="ri-chat-3-line"></i><a className="dropdown-item" href="#">Minhas vendas</a>
                         </li>
 
-                        <li className='d-flex align-items-center px-4'>
-                            <i className="ri-logout-box-r-line"></i><a className="dropdown-item" href="#">Sair</a>
+                        <li className='d-flex align-items-center px-4' >
+                            <i className="ri-logout-box-r-line"></i><button className="dropdown-item" onClick={logOut} href="#">Sair</button>
                         </li>
 
                     </ul>
