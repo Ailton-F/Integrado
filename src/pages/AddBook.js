@@ -21,19 +21,22 @@ export function AddBook(props){
         const author = e.target.author.value;
         const price = Number(e.target.price.value);
         const desc = e.target.desc.value;
-        const file = e.target.formFile.files;
-        const fileArray = Array.from(file).slice(0, 4);
-        
+        // const files = e.target.formFile.files;
+        // const arr = Array.from(files)
         const body = new FormData();
+
         body.append('title', title);
         body.append('author', author);
         body.append('description', desc);
         body.append('price', price);
-        body.append('img1', fileArray[0]);
-        body.append('img2', fileArray[1]);
-        body.append('img3', fileArray[2]);
-        body.append('img4', fileArray[3]);
-        
+        // body.append(`img1`, arr[0])
+        // body.append(`img2`, arr[1])
+        // body.append(`img3`, arr[2])
+        // body.append(`img4`, arr[3])
+
+
+        console.log(...body)
+
         try {
           const post = await addBook(body);
           console.log(post);
@@ -76,7 +79,7 @@ export function AddBook(props){
                             <textarea className="form-control" id="desc" name="desc" rows="5" placeholder='Ex: Bom estado, impresso em 2001...'></textarea>
                         </div>
 
-                        <div className="mb-4">
+                        {/* <div className="mb-4">
                             <p>Fotos <TextMuted>(até 4 fotos)</TextMuted></p>
 
                             <FileInput htmlFor="formFile" className="form-label rounded text-center">
@@ -85,8 +88,8 @@ export function AddBook(props){
                                 <TinyText>Apenas em JPG e PNG</TinyText>
                             </FileInput>
 
-                            <input className="d-none form-control" type="file" id="formFile" name="formFile"/>
-                        </div>
+                            <input className="d-none form-control" type="file" id="formFile" name="formFile" multiple/>
+                        </div> */}
 
                         <SbmtBtn className="text-white px-5 py-2" type="submit" value="Enviar"/>
                     </form>

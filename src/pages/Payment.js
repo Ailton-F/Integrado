@@ -6,11 +6,21 @@ import { BuyBtn } from '../assets/styles/BookStyle';
 
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth';
+import { useEffect } from 'react';
+
+import { useParams } from 'react-router-dom';
 
 export function Payment(props){
     const { userData } = useContext(AuthContext)
+    let {id} = useParams();
 
-    function handlePayment(){
+    async function handlePayment(){
+        const url = process.env.REACT_APP_API_KEY;
+        const reqOpt = {
+            method: "DELETE",
+            headers: {"content-type":"application/json"}
+        }
+        let req = await fetch(`${url}/api/books/${id}`, reqOpt);
         window.location="/"
     }
 
@@ -29,7 +39,7 @@ export function Payment(props){
                         <TinyText>Apenas em JPG e PNG</TinyText>
                     </FileInput>
                     <div>
-                        <BuyBtn className="text-white justify-content-center" type="submit" value="Enviar" onClick={handlePayment}/>
+                        <BuyBtn className="text-white justify-content-center" type="submit" onClick={handlePayment}>Enviar</BuyBtn>
                     </div>
                 </miniCard>
             </div>

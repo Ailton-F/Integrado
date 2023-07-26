@@ -47,9 +47,9 @@ export function Book(props){
 
                 <h2>R$ {book.price}</h2>
                 <div id="book-btns" className="d-flex mt-4 mb-1">
-                <BuyBtn className="text-white justify-content-center" type="submit" value="Comprar"/>
-                <BuyBtn className="text-white justify-content-center" type="submit" value="&#9825; Adicionar à lista"/>
-                <BuyBtn className="text-white justify-content-center" type="submit" value="Chat"/>
+                <BuyBtn className="text-white justify-content-center" type="submit" href={`/payment/${book.id}`}>Comprar</BuyBtn>
+                <BuyBtn className="text-white justify-content-center" type="submit" href="#">&#9825; Adicionar à lista</BuyBtn>
+                <BuyBtn className="text-white justify-content-center" type="submit" href="#">Chat</BuyBtn>
                 </div>
 
                 <h4 className='mt-4'>Detalhes do livro</h4>

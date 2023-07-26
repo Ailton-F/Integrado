@@ -10,7 +10,7 @@ function BooksCarousel(props) {
     useEffect(() => {
         if (Array.isArray(props.books)) {
             let cards = props.books.map((book, i) => (
-                <CardBook key={i} title={book.title} author={book.author} />
+                <CardBook key={i} title={book.title} author={book.author} id={book.id}/>
             ));
             setCards(cards);
         }

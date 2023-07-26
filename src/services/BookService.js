@@ -3,11 +3,11 @@ import {useState, useEffect } from "react";
 export const addBook = async (bookData)=>{
 
     const api_url = process.env.REACT_APP_API_KEY;
-    
+    console.log(...bookData)
 
     let post = await fetch(`${api_url}/api/books/`, {
         method: "POST",
-        headers: {"content-type":"application/json"},
+        headers: {"Content-Type": "application/json"},
         body: bookData
     });
 

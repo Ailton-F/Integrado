@@ -13,7 +13,7 @@ export function CardBook(props){
                 <h6 className='fw-bold'>{props.title}</h6>
                 <span className='fw-light text-muted'>{props.author}</span>
             </div>
-            <BtnDetails href="#" className='btn btn-success rounded-pill mt-2'>Ver detalhes »</BtnDetails>
+            <BtnDetails href={`book/${props.id}`} className='btn btn-success rounded-pill mt-2'>Ver detalhes »</BtnDetails>
         </div>
     </div>
     );

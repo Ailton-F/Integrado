@@ -19,7 +19,7 @@ function App() {
           <Route path="/add-book" element={<AddBook />}/>
           <Route path="/edit-user" element={<EditUser />}/>
           <Route path="/book/:id" element={<Book />}/>
-          <Route path="/payment" element={<Payment/>}/>
+          <Route path="/payment/:id" element={<Payment/>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

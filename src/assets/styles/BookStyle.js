@@ -7,7 +7,7 @@ export const BlockTest = styled.div`
     border-radius: 10px;
 `;
 
-export const BuyBtn = styled.input`
+export const BuyBtn = styled.a`
     background-color: #6CD05C;
     border: 1px solid #6CD05C;
     padding: .3em 1.5em;
