@@ -33,7 +33,7 @@ export const AuthProvider = ({children}) => {
             })
         }
         let req = await fetch(`${url}/api/users/login/`, reqOpt);
-        let res = req.json();
+        let res = await req.json();
         
         console.log(req.status);
         
