@@ -33,10 +33,8 @@ export const AuthProvider = ({children}) => {
             })
         }
         let req = await fetch(`${url}/api/users/login/`, reqOpt);
-        let res = req.json();
-        
-        console.log(req.status);
-        
+        let res = await req.json();
+
         if(req.status != 200){
             toast.error('Senha ou email incorretos, tente novamente!');
         } else {

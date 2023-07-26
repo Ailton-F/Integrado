@@ -18,7 +18,7 @@ function App() {
           <Route path="/register" element={<Cad />}/>
           <Route path="/add-book" element={<AddBook />}/>
           <Route path="/edit-user" element={<EditUser />}/>
-          <Route path="/book" element={<Book />}/>
+          <Route path="/book/:id" element={<Book />}/>
           <Route path="/payment" element={<Payment/>}/>
         </Routes>
       </BrowserRouter>

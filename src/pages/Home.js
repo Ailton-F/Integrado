@@ -23,11 +23,8 @@ function Home(){
     useEffect(() => {
         let colunas = [];
         
-        for(let i = 0; i < 6; i++){
-            colunas.push(<CategoryCard title="Título" src="https://source.unsplash.com/random/381x180/?img=1" key={`c${i}`}/>)
-        }
         
-        const fetchData = async () => {
+        const fetchDataBooks = async () => {
             try {
                 const api = process.env.REACT_APP_API_KEY;
                 let req = await fetch(`${api}/api/books/`);
@@ -38,8 +35,23 @@ function Home(){
             }
         };
 
+        const fetchDataCategory = async () => {
+            try {
+                const api = process.env.REACT_APP_API_KEY;
+                let req = await fetch(`${api}/api/category/`);
+                let categories = await req.json();
+                categories.map((category, i)=>{
+                    colunas.push(<CategoryCard title={category.nome} src="https://source.unsplash.com/random/381x180/?img=1" key={`c${i}`}/>)
+                });
+                
+            } catch (error) {
+                console.error('Erro ao buscar categorias', error);
+            }
+        };
 
-        setBooks(fetchData);
+        
+        
+        setBooks(fetchDataBooks); 
         setCols(colunas);
         setLoading(false);
 
