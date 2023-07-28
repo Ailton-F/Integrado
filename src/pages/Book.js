@@ -7,13 +7,13 @@ import { useEffect, useState } from 'react';
 export function Book(props){
     const [book, setBook] = useState([]);
     let {id} = useParams();
+    const api = process.env.REACT_APP_API_KEY;
 
     useEffect(()=>{
 
         const fetchDataBooks = async () => {
 
             try {
-                const api = process.env.REACT_APP_API_KEY;
                 let req = await fetch(`${api}/api/books/${id}`);
                 let book = await req.json();
                 setBook(book);
@@ -36,12 +36,12 @@ export function Book(props){
 
                 <div id="book-imgs" className="row d-flex mb-4">
                     <div className="col-8">
-                    <BlockTest/>
+                    <BlockTest src={`${api}${book.img1}`}/>
                     </div>
                     <div className="col-4">
-                    <SmallBlock/>
-                    <SmallBlock/>
-                    <SmallBlock/>
+                    <SmallBlock src={`${api}${book.img2}`}/>
+                    <SmallBlock src={`${api}${book.img3}`}/>
+                    <SmallBlock src={`${api}${book.img4}`}/>
                     </div>
                 </div>
 

@@ -1,23 +1,22 @@
 import {useState, useEffect } from "react";
+import axios from 'axios';
 
 export const addBook = async (bookData)=>{
-
     const api_url = process.env.REACT_APP_API_KEY;
-    console.log(...bookData)
 
-    let post = await fetch(`${api_url}/api/books/`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: bookData
-    });
-
-
-    if(!post.ok){
-        throw new Error('Failed to add book')
+    const config = {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
     }
 
-    const data = await post.json();
-    return data
+    // let post = await fetch(`${api_url}/api/books/`, {
+    //     method: "POST",
+    //     headers: {"Content-Type": "multipart/form-data"},
+    //     body: bookData
+    // });
+
+    let req = await axios.post(`${api_url}/api/books/`, bookData, config);
 }
 
 

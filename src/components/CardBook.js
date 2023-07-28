@@ -1,12 +1,13 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import {BtnDetails} from '../assets/styles/CardBookStyle';
+import { BtnDetails, Image } from '../assets/styles/CardBookStyle';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export function CardBook(props){
+    const api_url = process.env.REACT_APP_API_KEY;
     return(
     <div className='card mx-3'>
         <div className='card-header border-0 text-center bg-transparent'>
-            <LazyLoadImage className='rounded' src="https://source.unsplash.com/random/238x342/?img=1" alt="random image" effect='blur'/>
+            <Image className='rounded' src={`${api_url}${props.img1}`} alt="random image" effect='blur'/>
         </div>
         <div className='card-body text-center'>
             <div className='book-info mb-1'>

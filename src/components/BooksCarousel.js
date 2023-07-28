@@ -5,12 +5,17 @@ import LoadingCircle from '../assets/styles/Loading';
 
 function BooksCarousel(props) {
     const [cards, setCards] = useState([]);
-
     
     useEffect(() => {
         if (Array.isArray(props.books)) {
             let cards = props.books.map((book, i) => (
-                <CardBook key={i} title={book.title} author={book.author} id={book.id}/>
+                <CardBook 
+                    key={i} 
+                    title={book.title} 
+                    author={book.author} 
+                    id={book.id} 
+                    img1={book.img1}
+                />
             ));
             setCards(cards);
         }

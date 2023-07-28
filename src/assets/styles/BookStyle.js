@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const BlockTest = styled.div`
+export const BlockTest = styled.img`
     width: 898px;
     height: 606px;
-    background-color: gray;
     border-radius: 10px;
 `;
 
@@ -25,11 +24,10 @@ export const BuyBtn = styled.a`
     }
 `;
 
-export const SmallBlock = styled.div`
+export const SmallBlock = styled.img`
     width: 286px;
     height: 194px;
     margin-left: 50px;
     margin-bottom: 10px;
-    background-color: gray;
     border-radius: 10px;
 `;

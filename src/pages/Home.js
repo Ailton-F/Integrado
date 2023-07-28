@@ -11,6 +11,7 @@ import {
     DivMT4,
     InfoDiv
 } from '../assets/styles/HomeStyle';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 
@@ -27,7 +28,13 @@ function Home(){
         const fetchDataBooks = async () => {
             try {
                 const api = process.env.REACT_APP_API_KEY;
-                let req = await fetch(`${api}/api/books/`);
+                let head = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        accept: 'application/json',
+                    }
+                };
+                let req = await fetch(`${api}/api/books/`, head);
                 let recentBooks = await req.json();
                 setBooks(recentBooks);
             } catch (error) {
