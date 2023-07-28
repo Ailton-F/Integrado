@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { miniCard } from '../assets/styles/PaymentStyle';
+import LoadingCircle from '../assets/styles/Loading';
 import { FileIcon, FileInput, TinyText } from '../assets/styles/AddBookStyle';
 import { BuyBtn } from '../assets/styles/BookStyle';
 
@@ -11,16 +12,14 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 export function Payment(props){
-    const { userData } = useContext(AuthContext)
+    const { authenticated, loading, userData } = useContext(AuthContext);
+    
     let {id} = useParams();
 
-    async function handlePayment(){
-        const url = process.env.REACT_APP_API_KEY;
-        const reqOpt = {
-            method: "DELETE",
-            headers: {"content-type":"application/json"}
-        }
-        let req = await fetch(`${url}/api/books/${id}`, reqOpt);
+    if(loading){return <LoadingCircle/>}
+    if(!authenticated){window.location = '/login'};
+
+    function handlePayment(){
         window.location="/"
     }
 
@@ -39,7 +38,7 @@ export function Payment(props){
                         <TinyText>Apenas em JPG e PNG</TinyText>
                     </FileInput>
                     <div>
-                        <BuyBtn className="text-white justify-content-center" type="submit" onClick={handlePayment}>Enviar</BuyBtn>
+                        <BuyBtn className="text-white justify-content-center" type="submit" value="Enviar" onClick={handlePayment}/>
                     </div>
                 </miniCard>
             </div>
